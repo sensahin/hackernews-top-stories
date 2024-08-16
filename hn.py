@@ -36,12 +36,24 @@ def get_top_stories_last_24_hours(limit=50):
 
     return sorted_stories[:limit]
 
-# Generate the email body directly
+# Generate the HTML email body
 popular_stories = get_top_stories_last_24_hours(limit=50)
-email_body = "Here are the most popular Hacker News stories from the last 24 hours:\n\n"
+email_body = """
+<html>
+<head></head>
+<body>
+    <h2>Here are the most popular Hacker News stories from the last 24 hours:</h2>
+    <ol>
+"""
 for idx, story in enumerate(popular_stories, start=1):
-    email_body += f"{idx}. [{story['title']}]({story['url']}) - {story['score']} points by {story['by']} on {story['time']}\n"
+    email_body += f'<li><a href="{story["url"]}">{story["title"]}</a> - {story["score"]} points by {story["by"]} on {story["time"]}</li>\n'
 
-# Save the email body to a file
-with open('email_body.txt', 'w') as f:
+email_body += """
+    </ol>
+</body>
+</html>
+"""
+
+# Save the HTML email body to a file
+with open('email_body.html', 'w') as f:
     f.write(email_body)
