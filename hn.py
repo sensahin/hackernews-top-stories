@@ -26,6 +26,7 @@ def get_top_stories_last_24_hours(limit=50):
                 'score': story_data.get('score'),
                 'by': story_data.get('by'),
                 'time': story_datetime,
+                'id': story_data.get('id')  # Include the story ID for comments link
             }
             stories.append(story_info)
 
@@ -46,7 +47,8 @@ email_body = """
     <ol>
 """
 for idx, story in enumerate(popular_stories, start=1):
-    email_body += f'<li><a href="{story["url"]}">{story["title"]}</a> - {story["score"]} points by {story["by"]} on {story["time"]}</li>\n'
+    comments_link = f'https://news.ycombinator.com/item?id={story["id"]}'
+    email_body += f'<li><a href="{story["url"]}">{story["title"]}</a> - {story["score"]} points by {story["by"]} on {story["time"]} - <a href="{comments_link}">Comments</a></li>\n'
 
 email_body += """
     </ol>
