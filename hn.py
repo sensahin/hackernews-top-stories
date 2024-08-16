@@ -38,7 +38,7 @@ def get_top_stories_last_24_hours(limit=50):
 
 # Generate the email body directly
 popular_stories = get_top_stories_last_24_hours(limit=50)
-email_body = "**Here are the most popular Hacker News stories from the last 24 hours:**\n\n"
+email_body = "Here are the most popular Hacker News stories from the last 24 hours:\n\n"
 for idx, story in enumerate(popular_stories, start=1):
     email_body += f"{idx}. [{story['title']}]({story['url']}) - {story['score']} points by {story['by']} on {story['time']}\n"
 
