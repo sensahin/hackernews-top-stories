@@ -28,7 +28,7 @@ jobs:
     - name: Run the script
       run: |
         source env/bin/activate
-        python hn.py > stories.txt
+        python hn.py
 
     - name: Send Email with popular stories
       uses: dawidd6/action-send-mail@v3
@@ -40,8 +40,5 @@ jobs:
         subject: "Daily Hacker News Popular Stories"
         to: ${{ secrets.EMAIL_TO }}
         from: ${{ secrets.EMAIL_FROM }}
-        body: |
-          **Here are the most popular Hacker News stories from the last 24 hours:**
-
-          $(cat stories.txt)
+        body: file://email_body.txt
         convert_markdown: true

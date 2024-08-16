@@ -36,8 +36,12 @@ def get_top_stories_last_24_hours(limit=50):
 
     return sorted_stories[:limit]
 
-# Save the output to a file
+# Generate the email body directly
 popular_stories = get_top_stories_last_24_hours(limit=50)
-with open('stories.txt', 'w') as f:
-    for idx, story in enumerate(popular_stories, start=1):
-        f.write(f"{idx}. {story['title']} ({story['url']}) - {story['score']} points by {story['by']} on {story['time']}\n")
+email_body = "**Here are the most popular Hacker News stories from the last 24 hours:**\n\n"
+for idx, story in enumerate(popular_stories, start=1):
+    email_body += f"{idx}. [{story['title']}]({story['url']}) - {story['score']} points by {story['by']} on {story['time']}\n"
+
+# Save the email body to a file
+with open('email_body.txt', 'w') as f:
+    f.write(email_body)
