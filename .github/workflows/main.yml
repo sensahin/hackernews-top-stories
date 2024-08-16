@@ -28,7 +28,7 @@ jobs:
     - name: Run the script
       run: |
         source env/bin/activate
-        python hn_popular_stories.py > stories.txt
+        python hn.py > stories.txt
 
     - name: Send Email with popular stories
       uses: dawidd6/action-send-mail@v3
