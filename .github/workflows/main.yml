@@ -40,7 +40,6 @@ jobs:
         subject: "Daily Hacker News Popular Stories"
         to: ${{ secrets.EMAIL_TO }}
         from: ${{ secrets.EMAIL_FROM }}
-        content_type: text/plain
         body: |
           Here are the most popular Hacker News stories from the last 24 hours:
           
