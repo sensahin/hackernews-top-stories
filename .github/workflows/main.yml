@@ -12,10 +12,10 @@ jobs:
 
     steps:
     - name: Check out the repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v3  # Consider updating to v4 if/when available
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v4  # Consider updating to v5 if/when available
       with:
         python-version: '3.x'
 
