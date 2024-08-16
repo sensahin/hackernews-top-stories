@@ -41,6 +41,7 @@ jobs:
         to: ${{ secrets.EMAIL_TO }}
         from: ${{ secrets.EMAIL_FROM }}
         body: |
-          Here are the most popular Hacker News stories from the last 24 hours:
-          
+          **Here are the most popular Hacker News stories from the last 24 hours:**
+
           $(cat stories.txt)
+        convert_markdown: true
