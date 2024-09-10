@@ -1,4 +1,4 @@
-name: Consider Best Stories
+name: Hackernews Top Stories
 
 on:
   schedule:
@@ -37,7 +37,7 @@ jobs:
         server_port: 465
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: "Consider Best Stories"
+        subject: "Hackernews Top Stories"
         to: ${{ secrets.EMAIL_TO }}
         from: ${{ secrets.EMAIL_FROM }}
         html_body: file://email_body.html

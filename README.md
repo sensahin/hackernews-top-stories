@@ -1,4 +1,4 @@
-# consider-best-stories
+# hackernews-top-stories
 
 A Python script to retrieve and display the most popular stories from Hacker News in the last 24 hours.
 
@@ -12,7 +12,7 @@ A Python script to retrieve and display the most popular stories from Hacker New
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/sensahin/consider-best-stories.git
+   git clone https://github.com/sensahin/hackernews-top-stories.git
    cd hn-popular-stories
 
 
